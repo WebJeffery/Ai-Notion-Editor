@@ -3,12 +3,11 @@
   "version": "0.0.2",
   "files": [
     "base.js",
-    "stencil.js",
-    "react-internal.js"
+    "react.js"
   ],
   "exports": {
     "./base": "./base.js",
-    "./stencil": "./stencil.js"
+    "./react": "./react.js"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",

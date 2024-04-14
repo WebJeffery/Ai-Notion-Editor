@@ -4,11 +4,11 @@
   "license": "MIT",
   "exports": {
     "./base": "./base.js",
-    "./stencil": "./stencil.js"
+    "./react": "./react.js"
   },
   "files": [
     "base.json",
-    "stencil.json"
+    "react.json"
   ],
   "publishConfig": {
     "access": "public"

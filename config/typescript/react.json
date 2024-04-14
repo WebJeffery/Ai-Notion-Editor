@@ -4,13 +4,11 @@
   "extends": "./base.json",
   "compilerOptions": {
     "declaration": false,
-    // 开启装饰器
     "experimentalDecorators": true,
     "module": "ESNext",
     "moduleResolution": "node",
     "allowJs": true,
     "jsx": "react",
     "jsxFactory": "h"
-    // "noEmit": true
   }
 }

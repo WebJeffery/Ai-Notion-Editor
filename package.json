@@ -36,6 +36,7 @@
   "devDependencies": {
     "@wc-editor/eslint-config": "workspace:^",
     "@wc-editor/typescript-config": "workspace:^",
+    "eslint": "^8.57.0",
     "omi": "^7.6.7",
     "vite": "^4.4.5"
   },
