@@ -1,0 +1,16 @@
+{
+  "name": "@wc-editor/typescript-config",
+  "version": "0.0.2",
+  "license": "MIT",
+  "exports": {
+    "./base": "./base.js",
+    "./stencil": "./stencil.js"
+  },
+  "files": [
+    "base.json",
+    "stencil.json"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
