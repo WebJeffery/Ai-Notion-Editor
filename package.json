@@ -27,6 +27,7 @@
   ],
   "scripts": {
     "dev": "vite",
+    "dev:editor": "pnpm --filter @wc-editor/core run dev",
     "docs": "cross-env APP_BASE_PATH=/Ai-Block-Editor/ vitepress dev docs --port=8732",
     "build:docs": "vitepress build docs",
     "build:github": "cross-env APP_BASE_PATH=/Ai-Block-Editor/ npm run build:docs",
@@ -34,6 +35,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/node": "^20.12.7",
     "@wc-editor/eslint-config": "workspace:^",
     "@wc-editor/typescript-config": "workspace:^",
     "eslint": "^8.57.0",
