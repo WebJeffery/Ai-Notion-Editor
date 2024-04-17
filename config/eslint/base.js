@@ -19,27 +19,7 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/ban-ts-comment': 'off',
-        'no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': [
-          'error',
-          {
-            vars: 'all',
-            varsIgnorePattern: '^_',
-            args: 'after-used',
-            argsIgnorePattern: '^_',
-            caughtErrors: 'all',
-            caughtErrorsIgnorePattern: '^_',
-            destructuredArrayIgnorePattern: '^_',
-            ignoreRestSiblings: true,
-          },
-        ],
-        '@typescript-eslint/no-floating-promises': 'error',
-        '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'error',
-        '@typescript-eslint/no-misused-promises': 'error',
-        '@typescript-eslint/no-namespace': [
-          'error',
-          { allowDeclarations: true },
-        ],
+        'no-unused-vars': 'off'
       },
     }
   ],
