@@ -4,14 +4,14 @@
  */
 
 import { IBlockEditor } from '../editor/interface'
-import { GLOBAL_Toolbar_CONF, IToolbarConfig } from '../toolbar'
+import { GLOBAL_Toolbar_CONF, IToolbarConfigKeys } from '../toolbar'
 // import { TOOLBAR_TO_EDITOR, EDITOR_TO_TOOLBAR } from '../utils/weak-maps'
 import { EditorMangaer } from '../editor'
 
 export interface ICreateToolbarOption {
   editor: IBlockEditor | null
   selector: string | HTMLElement
-  config?: Partial<IToolbarConfig>
+  config?: Partial<IToolbarConfigKeys>
 }
 
 export const createToolbar = (option: ICreateToolbarOption) => {
@@ -25,7 +25,7 @@ export const createToolbar = (option: ICreateToolbarOption) => {
 
   // 处理配置
   const toolbarConfig = {
-    ...EditorMangaer.toolbarConfig,
+    ...EditorMangaer.toolbarConfigKeys,
     toolbarKeysMapConfig: GLOBAL_Toolbar_CONF,
     ...config,
   }

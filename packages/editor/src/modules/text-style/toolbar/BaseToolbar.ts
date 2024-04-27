@@ -3,8 +3,7 @@
  * @author WebJeffery
  */
 import { t } from 'i18next'
-import { IBlockEditor } from '../../../editor'
-import { IToolbarBase } from '../../../toolbar/interface'
+import type { IBlockEditor, IToolbarBase } from '@swc-editor/core'
 import { isMenuDisabled } from '../helper'
 
 abstract class BaseMenu implements IToolbarBase {

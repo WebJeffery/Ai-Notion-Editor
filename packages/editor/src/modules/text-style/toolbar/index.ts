@@ -3,13 +3,13 @@
  * @author wangfupeng
  */
 
-import BoldMenu from './BoldMenu'
+import BoldMenu from './BoldToolbar'
 import CodeMenu from './CodeMenu'
-import ItalicMenu from './ItalicMenu'
-import ThroughMenu from './ThroughMenu'
-import UnderlineMenu from './UnderlineMenu'
-import SubMenu from './SubMenu'
-import SupMenu from './SupMenu'
+import ItalicMenu from './ItalicToolbar'
+import ThroughMenu from './ThroughToolbar'
+import UnderlineMenu from './UnderlineToolbar'
+import SubMenu from './SubToolbar'
+import SupMenu from './SupToolbar'
 
 export const boldMenuConf = {
   key: 'bold',

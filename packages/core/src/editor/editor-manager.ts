@@ -3,7 +3,10 @@
  * @author WebJeffery
  */
 import { Extensions } from '@tiptap/core'
-import { registerToolbarConfig, IToolbarConfig, ISingleToolbarConfig } from '../toolbar'
+import { registerToolbarMenu, getDefaultToolbarConfigKeys, IToolbarConfigKeys, ISingleToolbarConfig } from '../toolbar'
+import { registerSlashMenu, ISingleSlashConfig, ISlashConfigKeys } from '../menu'
+import { getBaseExtensions } from './baseExtensions'
+import { IModuleConf } from './interface'
 
 export class EditorMangaer {
   constructor() {
@@ -19,19 +22,38 @@ export class EditorMangaer {
   //   };
   // }
 
-  // toolbar 配置
-  static toolbarConfig: Partial<IToolbarConfig> = {}
-  static setToolbarConfig(newConfig: Partial<IToolbarConfig> = {}) {
-    this.toolbarConfig = {
-      ...this.toolbarConfig,
+  // 编辑器扩展插件
+  static tiptapExtensions: Extensions = getBaseExtensions()
+  static addTiptapExtensions(extensions: Extensions) {
+    this.tiptapExtensions.push(...extensions)
+  }
+
+  // toolbar 工具栏 key 默认配置
+  static toolbarConfigKeys: Partial<IToolbarConfigKeys> = getDefaultToolbarConfigKeys()
+  static setToolbarConfigKeys(newConfig: Partial<IToolbarConfigKeys> = {}) {
+    this.toolbarConfigKeys = {
+      ...this.toolbarConfigKeys,
       ...newConfig,
     }
   }
 
-  // 编辑器扩展插件
-  static extensionConfig: Extensions = []
-  static setExtensionConfig(extensions: Extensions) {
-    this.extensionConfig.push(...extensions)
+  // 注册工具栏 toolbar menu
+  static registerToolbarMenu(toolbarMenu: ISingleToolbarConfig, customConfig?: { [key: string]: any }) {
+    registerToolbarMenu(toolbarMenu, customConfig)
+  }
+
+  // slash 工具栏 key 默认配置
+  static slashConfigKeys: Partial<ISlashConfigKeys> = {}
+  static setSlashConfigKeys(newConfig: Partial<ISlashConfigKeys> = {}) {
+    this.slashConfigKeys = {
+      ...this.slashConfigKeys,
+      ...newConfig,
+    }
+  }
+
+  // 输入 / 斜杠菜单
+  static registerSlashMenu(slashMenu: ISingleSlashConfig, customConfig?: { [key: string]: any }) {
+    registerSlashMenu(slashMenu, customConfig)
   }
 
   // 注册插件
@@ -40,14 +62,20 @@ export class EditorMangaer {
   //   this.plugins.push(plugin);
   // }
 
-  // 注册 menu
-  // TODO 可在注册时传入配置，在开发文档中说明
-  static registerToolbar(toolbarConf: ISingleToolbarConfig, customConfig?: { [key: string]: any }) {
-    registerToolbarConfig(toolbarConf, customConfig)
-  }
+  // 注册 module
+  static registerModule(module: Partial<IModuleConf>) {
+    const { toolbar, extensions, slashMenu } = module
 
-  // // 注册 module
-  // static registerModule(module: Partial<IModuleConf>) {
-  //   registerModule(module);
-  // }
+    if (toolbar) {
+      toolbar.forEach((item) => EditorMangaer.registerToolbarMenu(item))
+    }
+
+    if (slashMenu) {
+      slashMenu.forEach((item) => EditorMangaer.registerSlashMenu(item))
+    }
+
+    if (extensions) {
+      EditorMangaer.addTiptapExtensions(extensions)
+    }
+  }
 }

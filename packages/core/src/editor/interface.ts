@@ -3,8 +3,10 @@
  * @author WebJeffery
  */
 
-import { Editor, EditorOptions } from '@tiptap/core'
+import { Editor, EditorOptions, Extensions } from '@tiptap/core'
 import { ISingleToolbarConfig } from '../toolbar'
+import { ISingleSlashConfig } from '../menu'
+import { Emitter } from 'event-emitter'
 
 // import ee from 'event-emitter'
 // import { IEditorConfig, AlertType, ISingleMenuConfig } from '../config/interface'
@@ -19,6 +21,7 @@ export interface IEditorOptions extends EditorOptions {}
  * 扩展 tiptap Editor 接口
  */
 export interface IBlockEditor extends Editor {
+  eventEmit: Emitter
   // data 相关（粘贴、拖拽等）
   // insertData: (data: DataTransfer) => void
   // setFragmentData: (data: Pick<DataTransfer, 'getData' | 'setData'>) => void
@@ -74,8 +77,10 @@ export interface IEditorConfig {
 export interface IModuleConf {
   // 注册toolbar
   toolbar: Array<ISingleToolbarConfig>
-  // menus: Array<IRegisterMenuConf>
-
-  // 注册插件
+  // 注册 slash
+  slashMenu: Array<ISingleSlashConfig>
+  // tiptap 插件
+  extensions: Extensions
+  // 注册 editor 插件
   editorPlugin: <T extends IBlockEditor>(editor: T) => T
 }

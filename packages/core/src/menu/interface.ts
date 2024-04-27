@@ -1,22 +1,19 @@
 import { IBlockEditor } from '../editor/interface'
 
-export interface IToolbarGroup {
+export interface ISlashGroup {
   key: string
   title: string
   iconSvg?: string
   menuKeys: string[]
 }
 
-export interface IOption {
-  value: string
-  text: string
-  selected?: boolean
-  styleForRenderMenuList?: { [key: string]: string } // 渲染菜单 list 时的样式
-}
-
-export interface IToolbarBase {
+export interface ISlashMenu {
   readonly title: string
-  readonly iconSvg?: string
+  readonly subTitle?: string
+  readonly desc?: string
+  readonly group: string // 所属分组
+  readonly leftIcon?: string
+  readonly rightIcon?: string
   readonly hotkey?: string // 快捷键，使用 https://www.npmjs.com/package/is-hotkey
   readonly alwaysEnable?: boolean // 永远不 disabled ，如“全屏”
 
@@ -31,31 +28,22 @@ export interface IToolbarBase {
   exec: (editor: IBlockEditor, value: string | boolean) => void // button click 或 select change 时触发
 }
 
-export interface IToolbarButton extends IToolbarBase {
-  /* 其他属性 */
-}
+export type ISlashFactory = () => ISlashMenu
 
-export interface IToolbarSelect extends IToolbarBase {
-  readonly selectPanelWidth?: number
-  getOptions: (editor: IBlockEditor) => IOption[] // select -> options
-}
-
-export type IToolbarFactory = () => IToolbarButton | IToolbarSelect
-
-export interface ISingleToolbarConfig {
+export interface ISingleSlashConfig {
   key: string
-  factory: IToolbarFactory
+  factory: ISlashFactory
   config?: Record<string, any>
 }
 
-export interface toolbarKeysMapConfig {
-  [key: string]: ISingleToolbarConfig
+export interface slashKeysMapConfig {
+  [key: string]: ISingleSlashConfig
 }
 
-export interface IToolbarConfigKeys {
-  toolbarKeys: Array<string | IToolbarGroup>
-  insertKeys: { index: number; keys: string | Array<string | IToolbarGroup> }
+export interface ISlashConfigKeys {
+  slashKeys: Array<string | ISlashGroup>
+  insertKeys: { index: number; keys: string | Array<string | ISlashGroup> }
   excludeKeys: Array<string> // 排除哪些菜单
   modalAppendToBody: boolean // modal append 到 body ，而非 $textAreaContainer 内
-  toolbarKeysMapConfig: toolbarKeysMapConfig
+  slashKeysMapConfig: slashKeysMapConfig
 }

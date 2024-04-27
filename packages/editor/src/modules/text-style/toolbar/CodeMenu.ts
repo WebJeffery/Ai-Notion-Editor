@@ -5,7 +5,7 @@
 
 import { t } from 'i18next'
 import { BOLD_SVG } from '../../../constants/icon-svg'
-import { IBlockEditor } from '../../../editor'
+import type { IBlockEditor } from '@swc-editor/core'
 import { isMenuDisabled } from '../helper'
 
 class BoldMenu {

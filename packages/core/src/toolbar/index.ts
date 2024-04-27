@@ -3,6 +3,7 @@
  * @author WebJeffery
  */
 export * from './interface'
+export { getDefaultToolbarConfigKeys } from './default-config'
 
 import { toolbarKeysMapConfig, ISingleToolbarConfig } from './interface'
 
@@ -14,8 +15,8 @@ export const GLOBAL_Toolbar_CONF: toolbarKeysMapConfig = {}
  * @param registerMenuConf { key, factory, config } ，各个 menu key 不能重复
  * @param customConfig 自定义 menu config
  */
-export function registerToolbarConfig(registerMenuConf: ISingleToolbarConfig, customConfig?: { [key: string]: any }) {
-  const { key, factory, config } = registerMenuConf
+export function registerToolbarMenu(toolbarMenu: ISingleToolbarConfig, customConfig?: { [key: string]: any }) {
+  const { key, factory, config } = toolbarMenu
 
   // 合并 config
   const newConfig = { type: 'button', ...config, ...(customConfig || {}) }

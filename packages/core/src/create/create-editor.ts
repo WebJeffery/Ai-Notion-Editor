@@ -13,11 +13,11 @@ class BlockEditor extends Editor {
 }
 
 export const createEditor = (options: IEditorOptions) => {
-  // const { extensions } = options
-  // const defaultExtends = getExtensions()
+  const { extensions, ...opt } = options
+
   const editor: IBlockEditor = new BlockEditor({
-    ...options,
-    extensions: EditorMangaer.extensionConfig,
+    ...opt,
+    extensions: [...EditorMangaer.tiptapExtensions, ...extensions],
     // editable: this.options.editable,
     // onCreate: (props) => this.onCreate(props),
     // onTransaction: (props) => this.onTransaction(props),

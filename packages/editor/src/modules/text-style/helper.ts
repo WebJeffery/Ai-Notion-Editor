@@ -2,9 +2,9 @@
  * @description helper
  * @author WebJeffery
  */
-import { IBlockEditor } from '../../editor'
+import { IBlockEditor } from '@swc-editor/core'
 
-//@ts-ignore
+// @ts-ignore
 export function isMenuDisabled(editor: IBlockEditor, mark?: string): boolean {
-  return false
+  return !!editor && !!mark
 }

@@ -3,7 +3,7 @@
  * @author WebJeffery
  */
 
-import { IModuleConf } from '../../editor/interface'
+import { IModuleConf } from '@swc-editor/core'
 
 import {
   boldMenuConf,
@@ -17,6 +17,7 @@ import {
 
 const textStyle: Partial<IModuleConf> = {
   toolbar: [boldMenuConf],
+  // menu: []
 }
 
 export default textStyle

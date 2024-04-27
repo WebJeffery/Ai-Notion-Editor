@@ -1,6 +1,6 @@
 /**
  * @description 自定义 element
- * @author wangfupeng
+ * @author WebJeffery
  */
 
 // 【注意】需要把自定义的 Text 引入到最外层的 custom-types.d.ts

@@ -3,9 +3,9 @@
  * @author WebJeffery
  */
 
-import { IBlockEditor } from '../../../editor'
+import type { IBlockEditor } from '@swc-editor/core'
 import { BOLD_SVG } from '../../../constants/icon-svg'
-import BaseMenu from './BaseMenu'
+import BaseMenu from './BaseToolbar'
 
 class BoldMenu extends BaseMenu {
   readonly mark = 'bold'
