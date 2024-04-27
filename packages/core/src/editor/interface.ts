@@ -1,10 +1,11 @@
-
 /**
  * @description editor interface
  * @author WebJeffery
  */
 
 import { Editor, EditorOptions } from '@tiptap/core'
+import { ISingleToolbarConfig } from '../toolbar'
+
 // import ee from 'event-emitter'
 // import { IEditorConfig, AlertType, ISingleMenuConfig } from '../config/interface'
 // import { IPositionStyle } from '../menus/interface'
@@ -12,75 +13,69 @@ import { Editor, EditorOptions } from '@tiptap/core'
 
 export type ElementWithId = Element & { id: string }
 
-export interface AiEditorOptions extends EditorOptions {
-  
-}
+export interface IEditorOptions extends EditorOptions {}
 
 /**
  * 扩展 tiptap Editor 接口
  */
-export interface AiEditor extends Editor {
+export interface IBlockEditor extends Editor {
   // data 相关（粘贴、拖拽等）
-  insertData: (data: DataTransfer) => void
-  setFragmentData: (data: Pick<DataTransfer, 'getData' | 'setData'>) => void
+  // insertData: (data: DataTransfer) => void
+  // setFragmentData: (data: Pick<DataTransfer, 'getData' | 'setData'>) => void
 
   // config
-  getConfig: () => IEditorConfig
-  getMenuConfig: (menuKey: string) => ISingleMenuConfig
-  getAllMenuKeys: () => string[]
-  alert: (info: string, type: AlertType) => void
+  // getConfig: () => IEditorConfig
+  // getMenuConfig: (menuKey: string) => ISingleMenuConfig
+  // getAllMenuKeys: () => string[]
+  // alert: (info: string, type: AlertType) => void
 
   // 内容处理
-  handleTab: () => void
-  getHtml: () => string
-  getText: () => string
-  getSelectionText: () => string // 获取选区文字
-  getElemsByTypePrefix: (typePrefix: string) => ElementWithId[]
-  getElemsByType: (type: string, isPrefix?: boolean) => ElementWithId[]
-  getParentNode: (node: Node) => Ancestor | null
-  isEmpty: () => boolean
-  clear: () => void
-  dangerouslyInsertHtml: (html: string, isRecursive?: boolean) => void
-  setHtml: (html: string) => void
+  // handleTab: () => void
+  // getHtml: () => string
+  // getText: () => string
+  // getSelectionText: () => string // 获取选区文字
+  // getElemsByTypePrefix: (typePrefix: string) => ElementWithId[]
+  // getElemsByType: (type: string, isPrefix?: boolean) => ElementWithId[]
+  // clear: () => void
+  // dangerouslyInsertHtml: (html: string, isRecursive?: boolean) => void
+  // setHtml: (html: string) => void
+  i18nChangeLanguage: (lang: string) => void
+}
 
-  // dom 相关
-  id: string
-  isDestroyed: boolean
-  isFullScreen: boolean
-  focus: (isEnd?: boolean) => void
-  isFocused: () => boolean
-  blur: () => void
-  updateView: () => void
-  destroy: () => void
-  scrollToElem: (id: string) => void
-  showProgressBar: (progress: number) => void
-  hidePanelOrModal: () => void
-  enable: () => void
-  disable: () => void
-  isDisabled: () => boolean
-  toDOMNode: (node: Node) => HTMLElement
-  fullScreen: () => void
-  unFullScreen: () => void
-  getEditableContainer: () => DOMElement
+export interface IEditorConfig {
+  onCreated?: (editor: IBlockEditor) => void
+  onChange?: (editor: IBlockEditor) => void
+  onDestroyed?: (editor: IBlockEditor) => void
 
-  // selection 相关
-  select: (at: Location) => void
-  deselect: () => void
-  move: (distance: number, reverse?: boolean) => void
-  moveReverse: (distance: number) => void
-  restoreSelection: () => void
-  getSelectionPosition: () => Partial<IPositionStyle>
-  getNodePosition: (node: Node) => Partial<IPositionStyle>
-  isSelectedAll: () => boolean
-  selectAll: () => void
+  onMaxLength?: (editor: IBlockEditor) => void
+  onFocus?: (editor: IBlockEditor) => void
+  onBlur?: (editor: IBlockEditor) => void
 
-  // 自定义事件
-  on: (type: string, listener: ee.EventListener) => void
-  off: (type: string, listener: ee.EventListener) => void
-  once: (type: string, listener: ee.EventListener) => void
-  emit: (type: string, ...args: any[]) => void
+  /**
+   * 自定义粘贴。返回 true 则继续粘贴，返回 false 则自行实现粘贴，阻止默认粘贴
+   */
+  customPaste?: (editor: IBlockEditor, e: ClipboardEvent) => boolean
 
-  // undo redo - 不用自己实现，使用 slate-history 扩展
-  undo?: () => void
-  redo?: () => void
+  // edit state
+  scroll: boolean
+  placeholder?: string
+  readOnly: boolean
+  autoFocus: boolean
+  // decorate?: (nodeEntry: NodeEntry) => Range[];
+  maxLength?: number
+
+  // 各个 menu 的配置汇总，可以通过 key 获取单个 menu 的配置
+  // MENU_CONF?: IMenuConfig
+
+  // 自由扩展其他配置
+  EXTEND_CONF?: any
+}
+
+export interface IModuleConf {
+  // 注册toolbar
+  toolbar: Array<ISingleToolbarConfig>
+  // menus: Array<IRegisterMenuConf>
+
+  // 注册插件
+  editorPlugin: <T extends IBlockEditor>(editor: T) => T
 }

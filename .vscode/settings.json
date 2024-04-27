@@ -1,0 +1,47 @@
+{
+  // 设置保存时格式化。只用于用于格式化css/less程序
+  "editor.formatOnSave": true,
+  // 关闭js/ts的默认format,统一用eslint进行格式化（tslint已经不维护了，所以转eslint吧）
+  "javascript.format.enable": false,
+  "typescript.format.enable": false,
+  // 关闭vetur的js/ts/html的formatter。html用eslint-plugin-vue格式化。
+  // js/ts程序用eslint，防止vetur中的prettier与eslint格式化冲突
+  "vetur.format.defaultFormatter.html": "none",
+  "vetur.format.defaultFormatter.js": "none",
+  "vetur.format.defaultFormatter.ts": "none",
+  // 开启eslint自动修复js/ts/jsx/tsx功能
+  "eslint.format.enable": false,
+  // 设置js的formatter为eslint
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // jsonc是有注释的json
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.enable": true,
+  "eslint.codeActionsOnSave.mode": "problems",
+  "eslint.validate": ["typescript", "javascript", "javascriptreact", "typescriptreact"],
+  // 将json文件识别为jsonc格式
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  "editor.cursorBlinking": "smooth",
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false
+}

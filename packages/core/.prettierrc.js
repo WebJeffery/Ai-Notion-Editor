@@ -5,8 +5,8 @@ module.exports = {
   tabWidth: 2,
   // 不使用缩进符，而使用空格
   useTabs: false,
-  // 行尾需要有分号
-  semi: true,
+  // 行尾不需要有分号
+  semi: false,
   // 使用单引号
   singleQuote: true,
   // 对象的 key 仅在必要时用引号
@@ -27,11 +27,11 @@ module.exports = {
   // 不需要自动在文件开头插入 @prettier
   insertPragma: false,
   // 使用默认的折行标准
-  proseWrap: 'preserve',
+  // proseWrap: 'preserve',
   // 根据显示样式决定 html 要不要折行
-  htmlWhitespaceSensitivity: 'css',
+  // htmlWhitespaceSensitivity: 'css',
   // 换行符使用 lf
-  endOfLine: 'lf',
+  // endOfLine: 'lf',
   // 格式化嵌入的内容
   embeddedLanguageFormatting: 'auto',
-};
+}
