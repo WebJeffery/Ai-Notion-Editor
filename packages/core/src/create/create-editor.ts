@@ -12,7 +12,7 @@ class BlockEditor extends Editor {
   }
 }
 
-export const createEditor = (options: Partial<IEditorOptions>) => {
+export const coreCreateEditor = (options: Partial<IEditorOptions>) => {
   const { extensions = [], ...opt } = options
 
   const editor: IBlockEditor = new BlockEditor({

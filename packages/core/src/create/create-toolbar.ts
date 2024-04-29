@@ -14,7 +14,7 @@ export interface ICreateToolbarOption {
   config?: Partial<IToolbarConfigKeys>
 }
 
-export const createToolbar = (option: ICreateToolbarOption) => {
+export const coreCreateToolbar = (option: ICreateToolbarOption) => {
   const { selector, editor, config = {} } = option
   if (editor == null) {
     throw new Error(`Cannot create toolbar, because editor is null`)

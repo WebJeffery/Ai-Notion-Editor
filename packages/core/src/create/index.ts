@@ -3,5 +3,5 @@
  * @author WebJeffery
  */
 
-export { createEditor } from './create-editor'
-export { createToolbar } from './create-toolbar'
+export * from './create-editor'
+export * from './create-toolbar'

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ai Block Editor 富文本编辑器</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .container-box {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 50px 10% 20px;
+        box-sizing: border-box;
+      }
+      .container-header {
+        padding: 0.5rem 0.75rem 0.5rem 1.5rem;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .wc-editor {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 0%;
+        overflow: hidden;
+      }
+      .wc-editor-toolbar {
+      }
+      .wc-editor-wrap {
+        flex: 1 1 0%;
+        overflow-y: auto;
+        border: 1px solid #eee;
+      }
+      .ProseMirror {
+        z-index: 0;
+        padding: 4rem 2rem 4rem 5rem;
+        caret-color: #000;
+        outline-width: 0;
+      }
+      ::-webkit-scrollbar {
+        height: 0.25rem;
+        width: 0.25rem;
+        background-color: hsla(0, 0%, 45%, 0.2);
+      }
+      ::-webkit-scrollbar-thumb {
+        border-radius: 9999px;
+        background-color: hsla(0, 0%, 45%, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-box">
+      <div class="container-header">
+        <div class="header-left">Ai Block Editor，实现 AI 的 Notion 富文本编辑器。</div>
+      </div>
+      <div class="wc-editor">
+        <div id="wc-editor-toolbar" class="wc-editor-toolbar"></div>
+        <div id="app" class="wc-editor-wrap"></div>
+      </div>
+    </div>
+    <script type="module" src="/build/editor.esm.js"></script>
+    <script type="module">
+      import { coreCreateEditor, createToolbar } from '/build/index.esm.js'
+
+      window.aiEditor = coreCreateEditor({
+        element: document.getElementById('app'),
+        content: '44wewewrwrewerwer444',
+      })
+      createToolbar({
+        selector: '#wc-editor-toolbar',
+        editor: window.aiEditor,
+      })
+    </script>
+  </body>
+</html>
