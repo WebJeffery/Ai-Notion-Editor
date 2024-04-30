@@ -19,18 +19,4 @@ aimp/
 /docs/.vitepress/cache/
 /demos/vanilla-ts/dist/
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# ai config
-xinghuo.ts
-wenxin.ts
 

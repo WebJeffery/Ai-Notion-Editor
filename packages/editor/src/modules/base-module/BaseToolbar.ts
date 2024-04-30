@@ -4,15 +4,19 @@
  */
 import { t } from 'i18next'
 import type { IBlockEditor, IToolbarBase } from '@swc-editor/core'
-import { isMenuDisabled } from '../helper'
 
-abstract class BaseMenu implements IToolbarBase {
+// @ts-ignore
+export function isMenuDisabled(editor: IBlockEditor, mark?: string): boolean {
+  return !!editor && !!mark
+}
+
+abstract class BaseToolbar implements IToolbarBase {
   alwaysEnable?: boolean | undefined
   width?: number | undefined
   abstract readonly mark: string
   protected readonly marksNeedToRemove: string[] = [] // 增加 mark 的同时，需要移除哪些 mark （互斥，不能共存的）
   abstract readonly iconSvg: string
-  hotkey?: string
+  abstract readonly hotkey: string
   readonly tag = 'button'
   title: string = 'default'
   titleName = 'default'
@@ -42,4 +46,4 @@ abstract class BaseMenu implements IToolbarBase {
   }
 }
 
-export default BaseMenu
+export default BaseToolbar

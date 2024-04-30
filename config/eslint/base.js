@@ -26,7 +26,11 @@ module.exports = {
   // add your custom rules here
   rules: {
     // 如果有console，会抛出错误
-    'no-console': 2,
+    // 'no-console': 2,
+    // 强制使用一致的换行风格
+    "linebreak-style": [1, "unix"],
+    // 要求方法链中每个调用都有一个换行符
+    "newline-per-chained-call": 1,
     // 在对象中使用getter/setter
     'accessor-pairs': 2,
     // =>的前/后括号

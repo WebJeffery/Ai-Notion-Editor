@@ -22,13 +22,14 @@ export interface IToolbarBase {
 
   readonly tag: string // 'button' | 'select'
   readonly width?: number // 设置 button 宽度
+  type?: string
 
   getTitle?: () => string // 获取标题
   getValue: (editor: IBlockEditor) => string | boolean // 获取菜单相关的 val 。如是否加粗、颜色值、h1/h2/h3 等
   isActive: (editor: IBlockEditor) => boolean // 是否激活菜单，如选区处于加粗文本时，激活 bold
   isDisabled: (editor: IBlockEditor) => boolean // 是否禁用菜单，如选区处于 code-block 时，禁用 bold 等样式操作
 
-  exec: (editor: IBlockEditor, value: string | boolean) => void // button click 或 select change 时触发
+  exec: (editor: IBlockEditor, value?: string | boolean) => void // button click 或 select change 时触发
 }
 
 export interface IToolbarButton extends IToolbarBase {
