@@ -14,6 +14,38 @@ export class SwcToolbar {
 
   connectedCallback() {
     const { toolbarKeysMapConfig, toolbarKeys, excludeKeys } = this.config
+    // const toolbar = [
+    //   'undo',
+    //   'redo',
+    //   'paint',
+    //   'clear',
+    //   'bold',
+    //   'italic',
+    //   'underline',
+    //   'strike',
+    //   'code',
+    //   'sub',
+    //   'sup',
+    //   'separator',
+    //   'task',
+    //   'emotion',
+    //   'background',
+    //   'color',
+    //   'align',
+    //   'lineheight',
+    //   'listOrdered',
+    //   'listUnordered',
+    //   'textWrap',
+    //   'indentDecrease',
+    //   'indentIncrease',
+    //   'image',
+    //   'video',
+    //   'codeBox',
+    //   'table',
+    //   'fullscreen',
+    // ]
+    // console.log('toolbarKeys', toolbarKeys)
+    // toolbar.push(...toolbarKeys)
 
     toolbarKeys.forEach((toolbar) => {
       if (typeof toolbar === 'string' && !excludeKeys.includes(toolbar)) {

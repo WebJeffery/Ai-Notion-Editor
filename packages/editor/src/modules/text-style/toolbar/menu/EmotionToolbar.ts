@@ -4,14 +4,13 @@
  */
 
 import type { IBlockEditor } from '@swc-editor/core'
-import { THROUGH_SVG } from '../../../../constants/icon-svg'
-import BaseToolbar from '../BaseToolbar'
+import { Svgs } from '../../../../assets/icons/svg'
+import BaseToolbar from '../../../base/BaseToolbar'
 
-class ThroughToolbar extends BaseToolbar {
+class EmotionToolbar extends BaseToolbar {
   readonly mark = 'through'
-  iconSvg = THROUGH_SVG
-  hotkey = 'mod+u'
-  titleName = 'textStyle.through'
+  iconSvg = Svgs.emotion
+  titleName = 'textStyle.emotion'
 
   onActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
@@ -23,4 +22,4 @@ class ThroughToolbar extends BaseToolbar {
   }
 }
 
-export default ThroughToolbar
+export default EmotionToolbar

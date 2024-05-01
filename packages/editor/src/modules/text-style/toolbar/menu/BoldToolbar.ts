@@ -1,15 +1,10 @@
-/**
- * @description bold menu
- * @author WebJeffery
- */
-
 import type { IBlockEditor } from '@swc-editor/core'
-import { BOLD_SVG } from '../../../../constants/icon-svg'
-import BaseToolbar from '../BaseToolbar'
+import { Svgs } from '../../../../assets/icons/svg'
+import BaseToolbar from '../../../base/BaseToolbar'
 
-class BoldMenu extends BaseToolbar {
+class BoldToolbar extends BaseToolbar {
   readonly mark = 'bold'
-  iconSvg = BOLD_SVG
+  iconSvg = Svgs.bold
   hotkey = 'mod+b'
   titleName = 'textStyle.bold'
 
@@ -23,4 +18,4 @@ class BoldMenu extends BaseToolbar {
   }
 }
 
-export default BoldMenu
+export default BoldToolbar

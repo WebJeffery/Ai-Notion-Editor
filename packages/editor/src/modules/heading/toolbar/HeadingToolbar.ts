@@ -4,12 +4,11 @@
  */
 
 import type { IBlockEditor } from '@swc-editor/core'
-import { BOLD_SVG } from '../../../constants/icon-svg'
-import BaseToolbar from '../../base-module/BaseToolbar'
+import BaseToolbar from '../../base/BaseToolbar'
 
 class HeadingToolbar extends BaseToolbar {
   readonly mark = 'heading'
-  iconSvg = BOLD_SVG
+  iconSvg = ''
   hotkey = 'mod+b'
   titleName = 'textStyle.bold'
 

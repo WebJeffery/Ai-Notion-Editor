@@ -4,12 +4,12 @@
  */
 
 import type { IBlockEditor } from '@swc-editor/core'
-import { CODE_SVG } from '../../../../constants/icon-svg'
-import BaseToolbar from '../BaseToolbar'
+import { Svgs } from '../../../../assets/icons/svg'
+import BaseToolbar from '../../../base/BaseToolbar'
 
-class UnderlineToolbar extends BaseToolbar {
+class CodeToolbar extends BaseToolbar {
   readonly mark = 'code'
-  iconSvg = CODE_SVG
+  iconSvg = Svgs.code
   hotkey = 'mod+e'
   titleName = 'textStyle.code'
 
@@ -23,4 +23,4 @@ class UnderlineToolbar extends BaseToolbar {
   }
 }
 
-export default UnderlineToolbar
+export default CodeToolbar

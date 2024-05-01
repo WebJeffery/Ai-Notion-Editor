@@ -1,4 +1,4 @@
-import {AiEditor} from "../../../src";
+import {AiEditor} from "../../../src/index.ts";
 import {config} from "./xinghuo.ts"
 
 const content = `

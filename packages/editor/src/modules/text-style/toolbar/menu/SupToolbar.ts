@@ -4,14 +4,13 @@
  */
 
 import type { IBlockEditor } from '@swc-editor/core'
-import { SUB_SVG } from '../../../../constants/icon-svg'
-import BaseToolbar from '../BaseToolbar'
+import { Svgs } from '../../../../assets/icons/svg'
+import BaseToolbar from '../../../base/BaseToolbar'
 
-class BoldMenu extends BaseToolbar {
-  readonly mark = 'sub'
-  iconSvg = SUB_SVG
-  hotkey = 'mod+b'
-  titleName = 'textStyle.sub'
+class SupToolbar extends BaseToolbar {
+  readonly mark = 'sup'
+  iconSvg = Svgs.supscript
+  titleName = 'textStyle.sup'
 
   onActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
@@ -23,4 +22,4 @@ class BoldMenu extends BaseToolbar {
   }
 }
 
-export default BoldMenu
+export default SupToolbar

@@ -4,12 +4,12 @@
  */
 
 import type { IBlockEditor } from '@swc-editor/core'
-import { UNDER_LINE_SVG } from '../../../../constants/icon-svg'
-import BaseToolbar from '../BaseToolbar'
+import { Svgs } from '../../../../assets/icons/svg'
+import BaseToolbar from '../../../base/BaseToolbar'
 
 class UnderlineToolbar extends BaseToolbar {
   readonly mark = 'underline'
-  iconSvg = UNDER_LINE_SVG
+  iconSvg = Svgs.underline
   hotkey = 'mod+u'
   titleName = 'textStyle.underline'
 

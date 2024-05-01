@@ -1,26 +1,21 @@
-/**
- * @description bold menu
- * @author WebJeffery
- */
-
 import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
 import BaseToolbar from '../../../base/BaseToolbar'
 
-class ItalicToolbar extends BaseToolbar {
-  readonly mark = 'italic'
-  iconSvg = Svgs.italic
-  hotkey = 'mod+i'
-  titleName = 'textStyle.italic'
+class TextWrapToolbar extends BaseToolbar {
+  readonly mark = 'textWrap'
+  iconSvg = Svgs.textWrap
+  hotkey = 'mod+b'
+  titleName = 'textStyle.textWrap'
 
   onActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleItalic()
+    editor.commands.toggleBold()
     return editor
   }
 }
 
-export default ItalicToolbar
+export default TextWrapToolbar

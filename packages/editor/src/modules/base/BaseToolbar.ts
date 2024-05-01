@@ -13,10 +13,10 @@ export function isMenuDisabled(editor: IBlockEditor, mark?: string): boolean {
 abstract class BaseToolbar implements IToolbarBase {
   alwaysEnable?: boolean | undefined
   width?: number | undefined
-  abstract readonly mark: string
-  protected readonly marksNeedToRemove: string[] = [] // 增加 mark 的同时，需要移除哪些 mark （互斥，不能共存的）
+  abstract readonly mark?: string
+  protected readonly marksNeedToRemove?: string[] = [] // 增加 mark 的同时，需要移除哪些 mark （互斥，不能共存的）
   abstract readonly iconSvg: string
-  abstract readonly hotkey: string
+  hotkey?: string
   readonly tag = 'button'
   title: string = 'default'
   titleName = 'default'

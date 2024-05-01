@@ -7,20 +7,19 @@ import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
 import BaseToolbar from '../../../base/BaseToolbar'
 
-class ItalicToolbar extends BaseToolbar {
-  readonly mark = 'italic'
-  iconSvg = Svgs.italic
-  hotkey = 'mod+i'
-  titleName = 'textStyle.italic'
+class RedoToolbar extends BaseToolbar {
+  readonly mark = 'redo'
+  iconSvg = Svgs.redo
+  titleName = 'textStyle.redo'
 
   onActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleItalic()
+    editor.commands.toggleBold()
     return editor
   }
 }
 
-export default ItalicToolbar
+export default RedoToolbar

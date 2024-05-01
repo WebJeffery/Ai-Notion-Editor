@@ -4,32 +4,12 @@
  */
 
 import { IModuleConf } from '@swc-editor/core'
-
-import {
-  boldMenuConf,
-  underlineMenuConf,
-  italicMenuConf,
-  throughMenuConf,
-  codeMenuConf,
-  subMenuConf,
-  supMenuConf,
-  clearMenuConf,
-} from './toolbar/index'
+import toolbar from './toolbar'
 import textExtensions from './extensions'
 
 const textStyle: Partial<IModuleConf> = {
-  toolbar: [
-    boldMenuConf,
-    underlineMenuConf,
-    italicMenuConf,
-    throughMenuConf,
-    codeMenuConf,
-    subMenuConf,
-    supMenuConf,
-    clearMenuConf,
-  ],
+  toolbar,
   extensions: textExtensions,
-  // menu: []
 }
 
 export default textStyle

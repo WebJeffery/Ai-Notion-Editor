@@ -4,12 +4,12 @@
  */
 
 import type { IBlockEditor } from '@swc-editor/core'
-import { ERASER_SVG } from '../../../../constants/icon-svg'
-import BaseToolbar from '../BaseToolbar'
+import { Svgs } from '../../../../assets/icons/svg'
+import BaseToolbar from '../../../base/BaseToolbar'
 
-class BoldMenu extends BaseToolbar {
-  readonly mark = 'bold'
-  iconSvg = ERASER_SVG
+class ClearToolbar extends BaseToolbar {
+  readonly mark = 'clear'
+  iconSvg = Svgs.eraser
   titleName = 'textStyle.clear'
 
   onActive(editor: IBlockEditor): boolean {
@@ -22,4 +22,4 @@ class BoldMenu extends BaseToolbar {
   }
 }
 
-export default BoldMenu
+export default ClearToolbar

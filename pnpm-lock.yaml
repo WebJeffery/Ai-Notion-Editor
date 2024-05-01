@@ -276,6 +276,9 @@ importers:
       '@swc-editor/core':
         specifier: workspace:^
         version: link:../core
+      '@tiptap/core':
+        specifier: ^2.3.0
+        version: 2.3.0(@tiptap/pm@2.3.0)
       '@tiptap/extension-blockquote':
         specifier: ^2.3.0
         version: 2.3.0(@tiptap/core@2.3.0)
@@ -390,6 +393,9 @@ importers:
       lowlight:
         specifier: ^3.1.0
         version: 3.1.0
+      prosemirror-model:
+        specifier: ^1.20.0
+        version: 1.20.0
       prosemirror-state:
         specifier: ^1.4.3
         version: 1.4.3

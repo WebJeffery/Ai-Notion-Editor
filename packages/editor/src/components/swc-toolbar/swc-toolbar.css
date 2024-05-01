@@ -1,12 +1,14 @@
 .swc-toolbar {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .swc-toolbar-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  padding: 4px;
+  margin: 0 4px;
   border-radius: 4px;
 }
 .swc-toolbar-item:hover {
