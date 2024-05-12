@@ -86,6 +86,7 @@
     "@tiptap/extension-text-style": "^2.3.0",
     "@tiptap/extension-underline": "^2.3.0",
     "@tiptap/pm": "^2.3.0",
+    "classnames": "^2.5.1",
     "highlight.js": "^11.9.0",
     "lodash-es": "^4.17.21",
     "lowlight": "^3.1.0",

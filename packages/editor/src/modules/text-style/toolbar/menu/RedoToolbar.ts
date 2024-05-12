@@ -5,19 +5,23 @@
 
 import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
-import BaseToolbar from '../../../base/BaseToolbar'
+import BaseToolbar from '../../../BaseToolbar'
 
 class RedoToolbar extends BaseToolbar {
   readonly mark = 'redo'
   iconSvg = Svgs.redo
-  titleName = 'textStyle.redo'
+  tooltip = 'toolbar.redo'
 
-  onActive(editor: IBlockEditor): boolean {
-    return editor.isActive(this.mark)
+  onActive(): boolean {
+    return false
+  }
+
+  isDisabled(editor: IBlockEditor): boolean {
+    return !editor.can().redo()
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleBold()
+    editor.chain().redo().focus().run()
     return editor
   }
 }

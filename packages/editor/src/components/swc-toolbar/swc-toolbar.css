@@ -10,8 +10,18 @@
   padding: 4px;
   margin: 0 4px;
   border-radius: 4px;
+  cursor: pointer;
 }
 .swc-toolbar-item:hover {
   background-color: var(--sl-color-neutral-200);
-  cursor: pointer;
+}
+.swc-toolbar-active {
+  background-color: var(--sl-color-neutral-200);
+}
+.swc-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.swc-disabled:hover {
+  background-color: transparent;
 }

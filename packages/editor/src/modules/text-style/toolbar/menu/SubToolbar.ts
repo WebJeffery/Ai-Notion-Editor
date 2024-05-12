@@ -5,19 +5,19 @@
 
 import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
-import BaseToolbar from '../../../base/BaseToolbar'
+import BaseToolbar from '../../../BaseToolbar'
 
 class SubToolbar extends BaseToolbar {
-  readonly mark = 'sub'
+  readonly mark = 'subscript'
   iconSvg = Svgs.subscript
-  titleName = 'textStyle.sub'
+  tooltip = 'toolbar.subscript'
 
-  onActive(editor: IBlockEditor): boolean {
+  isActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleSubscript()
+    editor.chain().toggleSubscript().focus().run()
     return editor
   }
 }

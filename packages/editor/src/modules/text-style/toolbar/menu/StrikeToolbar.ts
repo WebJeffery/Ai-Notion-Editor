@@ -1,18 +1,18 @@
 import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
-import BaseToolbar from '../../../base/BaseToolbar'
+import BaseToolbar from '../../../BaseToolbar'
 
 class StrikeToolbar extends BaseToolbar {
-  readonly mark = 'bold'
+  readonly mark = 'strike'
   iconSvg = Svgs.strikethrough
-  titleName = 'textStyle.strike'
+  tooltip = 'toolbar.strike'
 
-  onActive(editor: IBlockEditor): boolean {
+  isActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleBold()
+    editor.chain().toggleStrike().focus().run()
     return editor
   }
 }

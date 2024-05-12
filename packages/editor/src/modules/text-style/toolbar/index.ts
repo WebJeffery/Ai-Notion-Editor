@@ -9,7 +9,7 @@ import StrikeToolbar from './menu/StrikeToolbar'
 import CodeToolbar from './menu/CodeToolbar'
 import SubToolbar from './menu/SubToolbar'
 import SupToolbar from './menu/SupToolbar'
-import SeparatorToolbar from './menu/SeparatorToolbar'
+// import SeparatorToolbar from './menu/SeparatorToolbar'
 import TaskToolbar from './menu/TaskToolbar'
 import EmotionToolbar from './menu/EmotionToolbar'
 import ColorToolbar from './menu/ColorToolbar'
@@ -18,7 +18,6 @@ import AlignToolbar from './menu/AlignToolbar'
 import LineheightToolbar from './menu/LineheightToolbar'
 import ListOrderedToolbar from './menu/ListOrderedToolbar'
 import ListUnorderedToolbar from './menu/ListUnorderedToolbar'
-import TextWrapToolbar from './menu/TextWrapToolbar'
 import IndentDecreaseToolbar from './menu/IndentDecreaseToolbar'
 import IndentIncreaseToolbar from './menu/IndentIncreaseToolbar'
 import ImageToolbar from './menu/ImageToolbar'
@@ -94,12 +93,12 @@ const toolbar = [
       return new SupToolbar()
     },
   },
-  {
-    key: 'separator',
-    factory() {
-      return new SeparatorToolbar()
-    },
-  },
+  // {
+  //   key: 'separator',
+  //   factory() {
+  //     return new SeparatorToolbar()
+  //   },
+  // },
   {
     key: 'task',
     factory() {
@@ -148,12 +147,7 @@ const toolbar = [
       return new ListUnorderedToolbar()
     },
   },
-  {
-    key: 'textWrap',
-    factory() {
-      return new TextWrapToolbar()
-    },
-  },
+
   {
     key: 'indentDecrease',
     factory() {

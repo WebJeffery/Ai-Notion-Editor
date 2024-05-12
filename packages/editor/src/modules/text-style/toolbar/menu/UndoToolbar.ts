@@ -5,20 +5,23 @@
 
 import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
-import BaseToolbar from '../../../base/BaseToolbar'
+import BaseToolbar from '../../../BaseToolbar'
 
 class UndoToolbar extends BaseToolbar {
   readonly mark = 'undo'
   iconSvg = Svgs.undo
-  hotkey = 'mod+b'
-  titleName = 'textStyle.undo'
+  tooltip = 'toolbar.undo'
 
-  onActive(editor: IBlockEditor): boolean {
-    return editor.isActive(this.mark)
+  onActive(): boolean {
+    return false
+  }
+
+  isDisabled(editor: IBlockEditor): boolean {
+    return !editor.can().undo()
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleBold()
+    editor.chain().undo().focus().run()
     return editor
   }
 }

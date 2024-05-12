@@ -23,6 +23,8 @@ export interface IToolbarBase {
   readonly tag: string // 'button' | 'select'
   readonly width?: number // 设置 button 宽度
   type?: string
+  tooltip?: string
+  titleName?: string
 
   getTitle?: () => string // 获取标题
   getValue: (editor: IBlockEditor) => string | boolean // 获取菜单相关的 val 。如是否加粗、颜色值、h1/h2/h3 等

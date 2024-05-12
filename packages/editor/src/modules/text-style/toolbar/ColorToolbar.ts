@@ -1,14 +1,10 @@
-/**
- * @description bold menu
- * @author WebJeffery
- */
-
 import type { IBlockEditor } from '@swc-editor/core'
+import { Svgs } from '../../../assets/icons/svg'
 import BaseToolbar from '../../BaseToolbar'
 
-class HeadingToolbar extends BaseToolbar {
-  readonly mark = 'heading'
-  iconSvg = ''
+class BoldToolbar extends BaseToolbar {
+  readonly mark = 'bold'
+  iconSvg = Svgs.bold
   hotkey = 'mod+b'
   titleName = 'textStyle.bold'
 
@@ -17,10 +13,9 @@ class HeadingToolbar extends BaseToolbar {
   }
 
   exec(editor: IBlockEditor) {
-    // @ts-ignore
-    editor.commands.toggleBold?.()
+    editor.commands.toggleBold()
     return editor
   }
 }
 
-export default HeadingToolbar
+export default BoldToolbar

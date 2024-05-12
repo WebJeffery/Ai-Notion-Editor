@@ -5,20 +5,19 @@
 
 import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
-import BaseToolbar from '../../../base/BaseToolbar'
+import BaseToolbar from '../../../BaseToolbar'
 
 class UnderlineToolbar extends BaseToolbar {
   readonly mark = 'underline'
   iconSvg = Svgs.underline
-  hotkey = 'mod+u'
-  titleName = 'textStyle.underline'
+  tooltip = 'toolbar.underline'
 
-  onActive(editor: IBlockEditor): boolean {
+  isActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleUnderline()
+    editor.chain().toggleUnderline().focus().run()
     return editor
   }
 }

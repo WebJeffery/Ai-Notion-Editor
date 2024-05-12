@@ -1,6 +1,6 @@
 import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
-import BaseToolbar from '../../../base/BaseToolbar'
+import BaseToolbar from '../../../BaseToolbar'
 
 class ImageToolbar extends BaseToolbar {
   readonly mark = 'image'
