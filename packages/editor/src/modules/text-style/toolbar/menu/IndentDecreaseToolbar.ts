@@ -3,17 +3,12 @@ import { Svgs } from '../../../../assets/icons/svg'
 import BaseToolbar from '../../../BaseToolbar'
 
 class IndentDecreaseToolbar extends BaseToolbar {
-  readonly mark = 'bold'
+  readonly mark = 'outdent'
   iconSvg = Svgs.indentDecrease
-  hotkey = 'mod+b'
-  titleName = 'textStyle.bold'
-
-  onActive(editor: IBlockEditor): boolean {
-    return editor.isActive(this.mark)
-  }
+  tooltip = 'toolbar.indent-decrease'
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleBold()
+    editor.chain().outdent().focus().run()
     return editor
   }
 }

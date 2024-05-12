@@ -9,21 +9,13 @@ import StrikeToolbar from './menu/StrikeToolbar'
 import CodeToolbar from './menu/CodeToolbar'
 import SubToolbar from './menu/SubToolbar'
 import SupToolbar from './menu/SupToolbar'
-// import SeparatorToolbar from './menu/SeparatorToolbar'
-import TaskToolbar from './menu/TaskToolbar'
 import EmotionToolbar from './menu/EmotionToolbar'
 import ColorToolbar from './menu/ColorToolbar'
 import BackgroundToolbar from './menu/BackgroundToolbar'
 import AlignToolbar from './menu/AlignToolbar'
 import LineheightToolbar from './menu/LineheightToolbar'
-import ListOrderedToolbar from './menu/ListOrderedToolbar'
-import ListUnorderedToolbar from './menu/ListUnorderedToolbar'
 import IndentDecreaseToolbar from './menu/IndentDecreaseToolbar'
 import IndentIncreaseToolbar from './menu/IndentIncreaseToolbar'
-import ImageToolbar from './menu/ImageToolbar'
-import VideoToolbar from './menu/VideoToolbar'
-import CodeBoxToolbar from './menu/CodeBoxToolbar'
-import TableToolbar from './menu/TableToolbar'
 import FullscreenToolbar from './menu/FullscreenToolbar'
 
 const toolbar = [
@@ -100,12 +92,6 @@ const toolbar = [
   //   },
   // },
   {
-    key: 'task',
-    factory() {
-      return new TaskToolbar()
-    },
-  },
-  {
     key: 'emotion',
     factory() {
       return new EmotionToolbar()
@@ -135,18 +121,6 @@ const toolbar = [
       return new LineheightToolbar()
     },
   },
-  {
-    key: 'listOrdered',
-    factory() {
-      return new ListOrderedToolbar()
-    },
-  },
-  {
-    key: 'listUnordered',
-    factory() {
-      return new ListUnorderedToolbar()
-    },
-  },
 
   {
     key: 'indentDecrease',
@@ -158,30 +132,6 @@ const toolbar = [
     key: 'indentIncrease',
     factory() {
       return new IndentIncreaseToolbar()
-    },
-  },
-  {
-    key: 'image',
-    factory() {
-      return new ImageToolbar()
-    },
-  },
-  {
-    key: 'video',
-    factory() {
-      return new VideoToolbar()
-    },
-  },
-  {
-    key: 'codeBox',
-    factory() {
-      return new CodeBoxToolbar()
-    },
-  },
-  {
-    key: 'table',
-    factory() {
-      return new TableToolbar()
     },
   },
   {

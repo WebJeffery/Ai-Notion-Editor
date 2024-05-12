@@ -10,14 +10,10 @@ import BaseToolbar from '../../../BaseToolbar'
 class ClearToolbar extends BaseToolbar {
   readonly mark = 'clear'
   iconSvg = Svgs.eraser
-  titleName = 'textStyle.clear'
-
-  onActive(editor: IBlockEditor): boolean {
-    return editor.isActive(this.mark)
-  }
+  tooltip = 'toolbar.eraser'
 
   exec(editor: IBlockEditor) {
-    editor.commands.unsetAllMarks()
+    editor.chain().unsetAllMarks().focus().run()
     return editor
   }
 }

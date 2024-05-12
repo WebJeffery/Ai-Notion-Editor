@@ -3,17 +3,16 @@ import { Svgs } from '../../../../assets/icons/svg'
 import BaseToolbar from '../../../BaseToolbar'
 
 class ListOrderedToolbar extends BaseToolbar {
-  readonly mark = 'bold'
+  readonly mark = 'orderedList'
   iconSvg = Svgs.listOrdered
-  hotkey = 'mod+b'
-  titleName = 'textStyle.bold'
+  tooltip = 'toolbar.ordered-list'
 
-  onActive(editor: IBlockEditor): boolean {
+  isActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleBold()
+    editor.chain().toggleOrderedList().focus().run()
     return editor
   }
 }

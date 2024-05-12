@@ -3,17 +3,16 @@ import { Svgs } from '../../../../assets/icons/svg'
 import BaseToolbar from '../../../BaseToolbar'
 
 class TaskToolbar extends BaseToolbar {
-  readonly mark = 'task'
+  readonly mark = 'taskList'
   iconSvg = Svgs.task
-  hotkey = 'mod+b'
-  titleName = 'textStyle.task'
+  tooltip = 'toolbar.todo'
 
-  onActive(editor: IBlockEditor): boolean {
+  isActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleBold()
+    editor.chain().toggleTaskList().focus().run()
     return editor
   }
 }

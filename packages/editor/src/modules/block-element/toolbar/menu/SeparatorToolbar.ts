@@ -2,11 +2,11 @@ import type { IBlockEditor } from '@swc-editor/core'
 import { Svgs } from '../../../../assets/icons/svg'
 import BaseToolbar from '../../../BaseToolbar'
 
-class VideoToolbar extends BaseToolbar {
-  readonly mark = 'video'
-  iconSvg = Svgs.video
+class SeparatorToolbar extends BaseToolbar {
+  readonly mark = 'separator'
+  iconSvg = Svgs.separator
   hotkey = 'mod+b'
-  titleName = 'textStyle.video'
+  titleName = 'textStyle.separator'
 
   onActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
@@ -18,4 +18,4 @@ class VideoToolbar extends BaseToolbar {
   }
 }
 
-export default VideoToolbar
+export default SeparatorToolbar

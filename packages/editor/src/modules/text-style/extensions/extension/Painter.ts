@@ -14,9 +14,8 @@ export type PainterAction = {
   marks: Mark[]
 }
 
-export const PainterExt = Extension.create({
-  name: 'painter',
-
+export const PainterExtension = Extension.create({
+  name: 'swc-painter',
   addCommands() {
     return {
       setPainter: (marks: Mark[]) => (obj) => {
@@ -27,12 +26,14 @@ export const PainterExt = Extension.create({
             dom,
           },
         } = obj
-        dom.style.cursor = 'context-menu'
+        // dom.style.cursor = 'context-menu'
+        dom.classList.add('format-cursor')
         dispatch(tr.setMeta('painterAction', { type: 'start', marks }))
         return true
       },
     }
   },
+
   addProseMirrorPlugins() {
     return [
       new Plugin({
@@ -54,6 +55,7 @@ export const PainterExt = Extension.create({
             mousedown(view) {
               const marks = this.getState(view.state) as Mark[]
               if (!marks || marks.length == 0) {
+                view.dom.classList.remove('format-cursor')
                 return false
               }
               const mouseup = () => {
@@ -62,9 +64,9 @@ export const PainterExt = Extension.create({
                 const {
                   dispatch,
                   state: { tr: transition, selection },
-                  dom,
+                  // dom,
                 } = view
-                dom.style.cursor = ''
+                // dom.style.cursor = ''
 
                 let tr = transition.removeMark(selection.from, selection.to)
                 for (const mark of marks) {
@@ -72,6 +74,7 @@ export const PainterExt = Extension.create({
                     tr = tr.addMark(selection.from, selection.to, mark)
                   }
                 }
+                view.dom.classList.remove('format-cursor')
 
                 dispatch(tr.setMeta('painterAction', { type: 'end' }))
               }

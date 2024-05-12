@@ -3,17 +3,16 @@ import { Svgs } from '../../../../assets/icons/svg'
 import BaseToolbar from '../../../BaseToolbar'
 
 class ListUnorderedToolbar extends BaseToolbar {
-  readonly mark = 'bold'
+  readonly mark = 'bulletList'
   iconSvg = Svgs.listUnordered
-  hotkey = 'mod+b'
-  titleName = 'textStyle.bold'
+  tooltip = 'toolbar.bullet-list'
 
-  onActive(editor: IBlockEditor): boolean {
+  isActive(editor: IBlockEditor): boolean {
     return editor.isActive(this.mark)
   }
 
   exec(editor: IBlockEditor) {
-    editor.commands.toggleBold()
+    editor.chain().toggleBulletList().focus().run()
     return editor
   }
 }
