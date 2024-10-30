@@ -34,5 +34,10 @@ export default {
     printer: 'Print',
     fullscreen: 'Full Screen',
     'cancel-fullscreen': 'Cancel Full Screen',
+
+    'align-left': 'Align left',
+    'align-right': 'Align right',
+    'align-center': 'Align center',
+    'align-justify': 'Align justify',
   },
 }

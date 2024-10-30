@@ -63,6 +63,8 @@ export class SwcToolbar {
         {this.toolbarList.map((config) => {
           if (config.type === 'button') {
             return <swc-toolbar-button config={config} editor={this.editor}></swc-toolbar-button>
+          } else if (config.type === 'dropdown') {
+            return <swc-toolbar-dropdown config={config} editor={this.editor}></swc-toolbar-dropdown>
           }
         })}
       </div>

@@ -36,5 +36,10 @@ export default {
     table: '表格',
     printer: '打印',
     fullscreen: '全屏',
+
+    'align-left': '居左对齐',
+    'align-right': '居右对齐',
+    'align-center': '居中对齐',
+    'align-justify': '两端对齐',
   },
 }

@@ -10,6 +10,13 @@ export function isMenuDisabled(editor?: IBlockEditor, mark?: string): boolean {
   return !editor && !!mark
 }
 
+export type ToolbarInfo = {
+  icon?: string
+  title?: string
+  tooltip?: string
+  value: string
+}
+
 abstract class BaseToolbar implements IToolbarBase {
   alwaysEnable?: boolean | undefined
   width?: number | undefined
@@ -18,8 +25,8 @@ abstract class BaseToolbar implements IToolbarBase {
   abstract readonly iconSvg: string
   hotkey?: string
   readonly tag = 'button'
-  title: string = 'default'
-  titleName?: string = 'default'
+  title: string = ''
+  titleName?: string = ''
   tooltip?: string = 'default'
 
   getTitle() {
@@ -42,8 +49,8 @@ abstract class BaseToolbar implements IToolbarBase {
     return isMenuDisabled(editor)
   }
 
-  exec(editor: IBlockEditor): IBlockEditor {
-    return editor
+  exec(editor: IBlockEditor, value: any): IBlockEditor {
+    return editor && value
   }
 
   onTransaction(editor: IBlockEditor): IBlockEditor {

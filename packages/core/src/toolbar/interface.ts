@@ -4,7 +4,7 @@ export interface IToolbarGroup {
   key: string
   title: string
   iconSvg?: string
-  menuKeys: string[]
+  menuKeys?: string[]
 }
 
 export interface IOption {
@@ -15,13 +15,12 @@ export interface IOption {
 }
 
 export interface IToolbarBase {
-  readonly title: string
-  readonly iconSvg?: string
-  readonly hotkey?: string // 快捷键，使用 https://www.npmjs.com/package/is-hotkey
-  readonly alwaysEnable?: boolean // 永远不 disabled ，如“全屏”
+  title: string
+  iconSvg?: string
+  hotkey?: string // 快捷键，使用 https://www.npmjs.com/package/is-hotkey
+  alwaysEnable?: boolean // 永远不 disabled ，如“全屏”
 
-  readonly tag: string // 'button' | 'select'
-  readonly width?: number // 设置 button 宽度
+  width?: number // 设置 button 宽度
   type?: string
   tooltip?: string
   titleName?: string
@@ -31,7 +30,7 @@ export interface IToolbarBase {
   isActive: (editor: IBlockEditor) => boolean // 是否激活菜单，如选区处于加粗文本时，激活 bold
   isDisabled: (editor: IBlockEditor) => boolean // 是否禁用菜单，如选区处于 code-block 时，禁用 bold 等样式操作
 
-  exec: (editor: IBlockEditor, value?: string | boolean) => void // button click 或 select change 时触发
+  exec: (editor: IBlockEditor, value?: any) => void // button click 或 select change 时触发
 }
 
 export interface IToolbarButton extends IToolbarBase {

@@ -12,11 +12,12 @@ import SupToolbar from './menu/SupToolbar'
 import EmotionToolbar from './menu/EmotionToolbar'
 import ColorToolbar from './menu/ColorToolbar'
 import BackgroundToolbar from './menu/BackgroundToolbar'
-import AlignToolbar from './menu/AlignToolbar'
 import LineheightToolbar from './menu/LineheightToolbar'
 import IndentDecreaseToolbar from './menu/IndentDecreaseToolbar'
 import IndentIncreaseToolbar from './menu/IndentIncreaseToolbar'
 import FullscreenToolbar from './menu/FullscreenToolbar'
+
+import AlignToolbar from './menu/AlignToolbar'
 
 const toolbar = [
   {
@@ -113,6 +114,9 @@ const toolbar = [
     key: 'align',
     factory() {
       return new AlignToolbar()
+    },
+    config: {
+      type: 'dropdown',
     },
   },
   {

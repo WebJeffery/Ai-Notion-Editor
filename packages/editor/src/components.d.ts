@@ -19,6 +19,14 @@ export namespace Components {
         "config": IToolbarBase;
         "editor": IBlockEditor;
     }
+    interface SwcToolbarColor {
+        "config": IToolbarBase;
+        "editor": IBlockEditor;
+    }
+    interface SwcToolbarDropdown {
+        "config": IToolbarBase;
+        "editor": IBlockEditor;
+    }
 }
 declare global {
     interface HTMLSwcIconSvgElement extends Components.SwcIconSvg, HTMLStencilElement {
@@ -39,10 +47,24 @@ declare global {
         prototype: HTMLSwcToolbarButtonElement;
         new (): HTMLSwcToolbarButtonElement;
     };
+    interface HTMLSwcToolbarColorElement extends Components.SwcToolbarColor, HTMLStencilElement {
+    }
+    var HTMLSwcToolbarColorElement: {
+        prototype: HTMLSwcToolbarColorElement;
+        new (): HTMLSwcToolbarColorElement;
+    };
+    interface HTMLSwcToolbarDropdownElement extends Components.SwcToolbarDropdown, HTMLStencilElement {
+    }
+    var HTMLSwcToolbarDropdownElement: {
+        prototype: HTMLSwcToolbarDropdownElement;
+        new (): HTMLSwcToolbarDropdownElement;
+    };
     interface HTMLElementTagNameMap {
         "swc-icon-svg": HTMLSwcIconSvgElement;
         "swc-toolbar": HTMLSwcToolbarElement;
         "swc-toolbar-button": HTMLSwcToolbarButtonElement;
+        "swc-toolbar-color": HTMLSwcToolbarColorElement;
+        "swc-toolbar-dropdown": HTMLSwcToolbarDropdownElement;
     }
 }
 declare namespace LocalJSX {
@@ -57,10 +79,20 @@ declare namespace LocalJSX {
         "config"?: IToolbarBase;
         "editor"?: IBlockEditor;
     }
+    interface SwcToolbarColor {
+        "config"?: IToolbarBase;
+        "editor"?: IBlockEditor;
+    }
+    interface SwcToolbarDropdown {
+        "config"?: IToolbarBase;
+        "editor"?: IBlockEditor;
+    }
     interface IntrinsicElements {
         "swc-icon-svg": SwcIconSvg;
         "swc-toolbar": SwcToolbar;
         "swc-toolbar-button": SwcToolbarButton;
+        "swc-toolbar-color": SwcToolbarColor;
+        "swc-toolbar-dropdown": SwcToolbarDropdown;
     }
 }
 export { LocalJSX as JSX };
@@ -70,6 +102,8 @@ declare module "@stencil/core" {
             "swc-icon-svg": LocalJSX.SwcIconSvg & JSXBase.HTMLAttributes<HTMLSwcIconSvgElement>;
             "swc-toolbar": LocalJSX.SwcToolbar & JSXBase.HTMLAttributes<HTMLSwcToolbarElement>;
             "swc-toolbar-button": LocalJSX.SwcToolbarButton & JSXBase.HTMLAttributes<HTMLSwcToolbarButtonElement>;
+            "swc-toolbar-color": LocalJSX.SwcToolbarColor & JSXBase.HTMLAttributes<HTMLSwcToolbarColorElement>;
+            "swc-toolbar-dropdown": LocalJSX.SwcToolbarDropdown & JSXBase.HTMLAttributes<HTMLSwcToolbarDropdownElement>;
         }
     }
 }

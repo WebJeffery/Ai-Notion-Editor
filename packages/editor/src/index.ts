@@ -27,7 +27,7 @@ EditorMangaer.setToolbarConfigKeys({
     'emotion',
     'background',
     'color',
-    // 'align',
+    'align',
     'lineheight',
     'listOrdered',
     'listUnordered',
