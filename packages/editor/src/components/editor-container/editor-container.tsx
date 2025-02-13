@@ -35,7 +35,7 @@ export class EditorContainer {
           <slot name="toolbar"></slot>
         </div>
         <div class="swc-editor-content">
-          <slot name="content"></slot>
+          <swc-editor-content editor={this.editor} ></swc-editor-content>
         </div>
         <slot name="footer"></slot>
         <slot></slot>

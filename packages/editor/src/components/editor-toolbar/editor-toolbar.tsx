@@ -15,7 +15,6 @@ export class EditorToolbar {
   // 监听 editorInitialized 事件
   @Listen('editorInitialized', { target: 'body' })
   handleEditorInitialized(event: CustomEvent<any>) {
-    debugger
     this.editor = event.detail.editor as Editor;
     this.editorStore = event.detail.editorStore;
   }

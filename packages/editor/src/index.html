@@ -16,10 +16,11 @@
         try {
           // 从全局变量中获取 useEditor
           const { useEditor } = window.swcTiptap;
+          // const editorContent = document.getElementById('swc-editor-content');
 
           // 初始化编辑器
           const { tiptapEditor: editor, editorStore } = useEditor({
-            element: document.getElementById('swc-editor-content'),
+            // element: document.getElementById('swc-editor-content'),
             content: '<p>欢迎使用 Tiptap 编辑器！</p>',
             placeholder: '请输入内容...',
             autofocus: true,
@@ -32,6 +33,7 @@
           const container = document.getElementById('editor-container');
           if (container) {
             container.editorStore = editorStore;
+            // editorContent.editor = editor;
             container.editor = editor;
             window.editor = editor;
             window.editorStore = editorStore;
