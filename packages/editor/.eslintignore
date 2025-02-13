@@ -1,5 +1,8 @@
-node_modules/*
+node_modules/
 dist/
-lib/
 www/
-*.html
+loader/
+.stencil/
+coverage/
+*.config.js
+*.d.ts

@@ -1,42 +1,19 @@
-export type * from '@swc-editor/core'
-export * from '@swc-editor/core'
-export type * from './components.d.ts'
-export * from './create'
+/**
+ * @fileoverview entry point for your component library
+ *
+ * This is the entry point for your component library. Use this file to export utilities,
+ * constants or data structure that accompany your components.
+ *
+ * DO NOT use this file to export your components. Instead, use the recommended approaches
+ * to consume components of this package as outlined in the `README.md`.
+ */
 
-import { i18nAddResources, EditorMangaer } from '@swc-editor/core'
-import enResources from './lang/en'
-import zhResources from './lang/zh-CN'
+import './global/app.css';
 
-i18nAddResources('en', enResources)
-i18nAddResources('zh-CN', zhResources)
-EditorMangaer.setToolbarConfigKeys({
-  toolbarKeys: [
-    'undo',
-    'redo',
-    'paint',
-    'clear',
-    'bold',
-    'italic',
-    'underline',
-    'strike',
-    'code',
-    'sub',
-    'sup',
-    'separator',
-    'task',
-    'emotion',
-    'background',
-    'color',
-    'align',
-    'lineheight',
-    'listOrdered',
-    'listUnordered',
-    // 'textWrap',
-    'indentDecrease',
-    'indentIncrease',
-    // 'image',
-    // 'codeBox',
-    // 'table',
-    // 'fullscreen',
-  ],
-})
+export { format } from './utils/utils';
+export type * from './components.d.ts';
+
+export { Components, JSX } from './components';
+export * from './components';
+export { useEditor } from './hooks/use-editor';
+export { createEditorStore } from './store/editor';

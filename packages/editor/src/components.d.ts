@@ -5,105 +5,83 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { IBlockEditor, IToolbarBase, IToolbarConfigKeys } from "@swc-editor/core";
-export { IBlockEditor, IToolbarBase, IToolbarConfigKeys } from "@swc-editor/core";
+import { Editor } from "@tiptap/core";
+export { Editor } from "@tiptap/core";
 export namespace Components {
-    interface SwcIconSvg {
-        "icon": string;
+    interface SwcEditorContainer {
+        "editor": Editor;
+        "editorStore": any;
     }
-    interface SwcToolbar {
-        "config": IToolbarConfigKeys;
-        "editor": IBlockEditor;
+    interface SwcEditorContent {
+        "editor": Editor;
     }
-    interface SwcToolbarButton {
-        "config": IToolbarBase;
-        "editor": IBlockEditor;
-    }
-    interface SwcToolbarColor {
-        "config": IToolbarBase;
-        "editor": IBlockEditor;
-    }
-    interface SwcToolbarDropdown {
-        "config": IToolbarBase;
-        "editor": IBlockEditor;
+    interface SwcEditorToolbar {
     }
 }
+export interface SwcEditorContainerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSwcEditorContainerElement;
+}
 declare global {
-    interface HTMLSwcIconSvgElement extends Components.SwcIconSvg, HTMLStencilElement {
+    interface HTMLSwcEditorContainerElementEventMap {
+        "editorInitialized": any;
     }
-    var HTMLSwcIconSvgElement: {
-        prototype: HTMLSwcIconSvgElement;
-        new (): HTMLSwcIconSvgElement;
+    interface HTMLSwcEditorContainerElement extends Components.SwcEditorContainer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSwcEditorContainerElementEventMap>(type: K, listener: (this: HTMLSwcEditorContainerElement, ev: SwcEditorContainerCustomEvent<HTMLSwcEditorContainerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSwcEditorContainerElementEventMap>(type: K, listener: (this: HTMLSwcEditorContainerElement, ev: SwcEditorContainerCustomEvent<HTMLSwcEditorContainerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSwcEditorContainerElement: {
+        prototype: HTMLSwcEditorContainerElement;
+        new (): HTMLSwcEditorContainerElement;
     };
-    interface HTMLSwcToolbarElement extends Components.SwcToolbar, HTMLStencilElement {
+    interface HTMLSwcEditorContentElement extends Components.SwcEditorContent, HTMLStencilElement {
     }
-    var HTMLSwcToolbarElement: {
-        prototype: HTMLSwcToolbarElement;
-        new (): HTMLSwcToolbarElement;
+    var HTMLSwcEditorContentElement: {
+        prototype: HTMLSwcEditorContentElement;
+        new (): HTMLSwcEditorContentElement;
     };
-    interface HTMLSwcToolbarButtonElement extends Components.SwcToolbarButton, HTMLStencilElement {
+    interface HTMLSwcEditorToolbarElement extends Components.SwcEditorToolbar, HTMLStencilElement {
     }
-    var HTMLSwcToolbarButtonElement: {
-        prototype: HTMLSwcToolbarButtonElement;
-        new (): HTMLSwcToolbarButtonElement;
-    };
-    interface HTMLSwcToolbarColorElement extends Components.SwcToolbarColor, HTMLStencilElement {
-    }
-    var HTMLSwcToolbarColorElement: {
-        prototype: HTMLSwcToolbarColorElement;
-        new (): HTMLSwcToolbarColorElement;
-    };
-    interface HTMLSwcToolbarDropdownElement extends Components.SwcToolbarDropdown, HTMLStencilElement {
-    }
-    var HTMLSwcToolbarDropdownElement: {
-        prototype: HTMLSwcToolbarDropdownElement;
-        new (): HTMLSwcToolbarDropdownElement;
+    var HTMLSwcEditorToolbarElement: {
+        prototype: HTMLSwcEditorToolbarElement;
+        new (): HTMLSwcEditorToolbarElement;
     };
     interface HTMLElementTagNameMap {
-        "swc-icon-svg": HTMLSwcIconSvgElement;
-        "swc-toolbar": HTMLSwcToolbarElement;
-        "swc-toolbar-button": HTMLSwcToolbarButtonElement;
-        "swc-toolbar-color": HTMLSwcToolbarColorElement;
-        "swc-toolbar-dropdown": HTMLSwcToolbarDropdownElement;
+        "swc-editor-container": HTMLSwcEditorContainerElement;
+        "swc-editor-content": HTMLSwcEditorContentElement;
+        "swc-editor-toolbar": HTMLSwcEditorToolbarElement;
     }
 }
 declare namespace LocalJSX {
-    interface SwcIconSvg {
-        "icon"?: string;
+    interface SwcEditorContainer {
+        "editor": Editor;
+        "editorStore": any;
+        "onEditorInitialized"?: (event: SwcEditorContainerCustomEvent<any>) => void;
     }
-    interface SwcToolbar {
-        "config"?: IToolbarConfigKeys;
-        "editor"?: IBlockEditor;
+    interface SwcEditorContent {
+        "editor"?: Editor;
     }
-    interface SwcToolbarButton {
-        "config"?: IToolbarBase;
-        "editor"?: IBlockEditor;
-    }
-    interface SwcToolbarColor {
-        "config"?: IToolbarBase;
-        "editor"?: IBlockEditor;
-    }
-    interface SwcToolbarDropdown {
-        "config"?: IToolbarBase;
-        "editor"?: IBlockEditor;
+    interface SwcEditorToolbar {
     }
     interface IntrinsicElements {
-        "swc-icon-svg": SwcIconSvg;
-        "swc-toolbar": SwcToolbar;
-        "swc-toolbar-button": SwcToolbarButton;
-        "swc-toolbar-color": SwcToolbarColor;
-        "swc-toolbar-dropdown": SwcToolbarDropdown;
+        "swc-editor-container": SwcEditorContainer;
+        "swc-editor-content": SwcEditorContent;
+        "swc-editor-toolbar": SwcEditorToolbar;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "swc-icon-svg": LocalJSX.SwcIconSvg & JSXBase.HTMLAttributes<HTMLSwcIconSvgElement>;
-            "swc-toolbar": LocalJSX.SwcToolbar & JSXBase.HTMLAttributes<HTMLSwcToolbarElement>;
-            "swc-toolbar-button": LocalJSX.SwcToolbarButton & JSXBase.HTMLAttributes<HTMLSwcToolbarButtonElement>;
-            "swc-toolbar-color": LocalJSX.SwcToolbarColor & JSXBase.HTMLAttributes<HTMLSwcToolbarColorElement>;
-            "swc-toolbar-dropdown": LocalJSX.SwcToolbarDropdown & JSXBase.HTMLAttributes<HTMLSwcToolbarDropdownElement>;
+            "swc-editor-container": LocalJSX.SwcEditorContainer & JSXBase.HTMLAttributes<HTMLSwcEditorContainerElement>;
+            "swc-editor-content": LocalJSX.SwcEditorContent & JSXBase.HTMLAttributes<HTMLSwcEditorContentElement>;
+            "swc-editor-toolbar": LocalJSX.SwcEditorToolbar & JSXBase.HTMLAttributes<HTMLSwcEditorToolbarElement>;
         }
     }
 }

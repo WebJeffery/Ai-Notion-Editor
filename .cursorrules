@@ -1,0 +1,60 @@
+# tiptap + stencil + tailwindcss + 国际化 + monorepo 开发规范
+
+
+## 项目概述
+本项目是一个基于 Tiptap、Stencil、Tailwind CSS 和 Turbo Monorepo 技术栈的 AI 富文本编辑器。项目采用模块化设计，确保可扩展性和可维护性。
+
+## 技术栈
+- **Tiptap**: 富文本编辑器核心
+- **Stencil**: 构建与框架无关的 Web 组件
+- **Tailwind CSS**: 样式管理
+- **Turbo Monorepo**: 优化 monorepo 构建和开发体验
+- **Next.js 15**: Web 应用框架
+- **i18next**: 国际化支持
+
+## 项目结构
+
+```bash
+ai-tiptap-editor/
+├── apps/
+│   ├── editor-demo/          # 编辑器演示应用
+│   │   ├── public/           # 静态资源
+│   │   ├── src/              # 应用源码
+│   │   │   ├── components/   # 演示用组件
+│   │   │   ├── pages/        # 演示页面
+│   │   │   ├── styles/       # 全局样式
+│   │   │   └── main.ts       # 应用入口
+│   │   └── vite.config.ts    # Vite 配置
+│   └── editor-web-component/ # Stencil Web 组件
+│       ├── src/              # 组件源码
+│       │   ├── components/   # Stencil 组件
+│       │   ├── utils/        # 工具函数
+│       │   └── index.ts      # 组件入口
+│       └── stencil.config.ts # Stencil 配置
+├── packages/
+│   ├── editor-core/          # 编辑器核心逻辑
+│   │   ├── src/              # 核心源码
+│   │   │   ├── extensions/   # Tiptap 扩展
+│   │   │   ├── plugins/      # 插件
+│   │   │   ├── utils/        # 工具函数
+│   │   │   └── index.ts      # 核心入口
+│   │   └── package.json      # 包配置
+│   ├── editor-ui/            # 编辑器 UI 组件
+│   │   ├── src/              # UI 组件源码
+│   │   │   ├── components/   # UI 组件
+│   │   │   ├── styles/       # Tailwind CSS 样式
+│   │   │   └── index.ts      # UI 入口
+│   │   └── package.json      # 包配置
+│   ├── editor-i18n/          # 国际化支持
+│   │   ├── src/              # 国际化源码
+│   │   │   ├── locales/      # 语言文件
+│   │   │   └── index.ts      # 国际化入口
+│   │   └── package.json      # 包配置
+│   └── editor-types/         # 类型定义
+│       ├── src/              # 类型定义源码
+│       │   └── index.ts      # 类型定义入口
+│       └── package.json      # 包配置
+├── turbo.json                # Turbo Monorepo 配置
+├── package.json              # 项目根配置
+└── README.md                 # 项目说明文档
+```

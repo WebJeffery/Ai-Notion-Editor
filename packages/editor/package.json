@@ -1,98 +1,66 @@
 {
-  "name": "@swc-editor/editor",
+  "name": "@swc-tiptap/core",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
+  "private": false,
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
+  "es2015": "dist/esm/index.js",
+  "es2017": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/editor/editor.esm.js",
+  "unpkg": "dist/swc-tiptap/swc-tiptap.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/editor/editor.esm.js",
-      "require": "./dist/editor/editor.cjs.js"
-    },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
+      "import": "./dist/components/index.js",
+      "require": "./dist/cjs/index.cjs"
     },
     "./loader": {
-      "import": "./loader/index.js",
-      "require": "./loader/index.cjs",
-      "types": "./loader/index.d.ts"
-    }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+      "import": "./dist/loader/index.js",
+      "require": "./dist/loader/index.cjs",
+      "types": "./dist/loader/index.d.ts"
+    },
+    "./components": "./dist/components/index.js",
+    "./css": "./dist/swc-tiptap/swc-tiptap.css"
   },
   "files": [
     "dist/",
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "lint:staged": "eslint --fix"
   },
   "devDependencies": {
+    "@stencil-community/postcss": "^2.2.0",
     "@stencil/core": "^4.7.0",
+    "@tiptap/core": "^2.11.5",
+    "@tiptap/extension-placeholder": "^2.11.5",
+    "@tiptap/pm": "^2.11.5",
+    "@tiptap/starter-kit": "^2.11.5",
     "@types/jest": "^29.5.6",
     "@types/node": "^16.18.11",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
+    "autoprefixer": "10.4.17",
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-stencil": "^0.0.1",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
-    "puppeteer": "^21.9.0"
+    "postcss": "8.4.35",
+    "puppeteer": "^21.9.0",
+    "tailwindcss": "3.4.1"
   },
-  "license": "MIT",
   "dependencies": {
-    "@shoelace-style/shoelace": "^2.15.0",
-    "@swc-editor/core": "workspace:^",
-    "@tiptap/core": "^2.3.0",
-    "@tiptap/extension-blockquote": "^2.3.0",
-    "@tiptap/extension-bold": "^2.3.0",
-    "@tiptap/extension-bubble-menu": "^2.3.0",
-    "@tiptap/extension-bullet-list": "^2.3.0",
-    "@tiptap/extension-character-count": "^2.3.0",
-    "@tiptap/extension-code": "^2.3.0",
-    "@tiptap/extension-code-block": "^2.3.0",
-    "@tiptap/extension-code-block-lowlight": "^2.3.0",
-    "@tiptap/extension-color": "^2.3.0",
-    "@tiptap/extension-font-family": "^2.3.0",
-    "@tiptap/extension-gapcursor": "^2.3.0",
-    "@tiptap/extension-hard-break": "^2.3.0",
-    "@tiptap/extension-heading": "^2.3.0",
-    "@tiptap/extension-highlight": "^2.3.0",
-    "@tiptap/extension-history": "^2.3.0",
-    "@tiptap/extension-horizontal-rule": "^2.3.0",
-    "@tiptap/extension-image": "^2.3.0",
-    "@tiptap/extension-italic": "^2.3.0",
-    "@tiptap/extension-link": "^2.3.0",
-    "@tiptap/extension-list-item": "^2.3.0",
-    "@tiptap/extension-mention": "^2.3.0",
-    "@tiptap/extension-ordered-list": "^2.3.0",
-    "@tiptap/extension-strike": "^2.3.0",
-    "@tiptap/extension-subscript": "^2.3.0",
-    "@tiptap/extension-superscript": "^2.3.0",
-    "@tiptap/extension-table": "^2.3.0",
-    "@tiptap/extension-table-cell": "^2.3.0",
-    "@tiptap/extension-table-header": "^2.3.0",
-    "@tiptap/extension-table-row": "^2.3.0",
-    "@tiptap/extension-task-item": "^2.3.0",
-    "@tiptap/extension-task-list": "^2.3.0",
-    "@tiptap/extension-text-align": "^2.3.0",
-    "@tiptap/extension-text-style": "^2.3.0",
-    "@tiptap/extension-underline": "^2.3.0",
-    "@tiptap/pm": "^2.3.0",
-    "classnames": "^2.5.1",
-    "highlight.js": "^11.9.0",
-    "lodash-es": "^4.17.21",
-    "lowlight": "^3.1.0",
-    "prosemirror-model": "^1.20.0",
-    "prosemirror-state": "^1.4.3",
-    "prosemirror-view": "^1.33.3",
-    "tiptap-markdown": "^0.8.9"
-  }
+    "@stencil/store": "^2.0.16"
+  },
+  "license": "MIT"
 }
