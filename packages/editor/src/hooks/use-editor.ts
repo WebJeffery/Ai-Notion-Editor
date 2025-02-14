@@ -14,11 +14,10 @@ export interface UseEditorOptions {
 }
 
 export const useEditor = (options: UseEditorOptions = {}) => {
-  const { element, content = '', placeholder = '请输入内容...', autofocus = false, editable = true, onUpdate, extensions = [] } = options;
+  const { content = '', placeholder = '请输入内容...', autofocus = false, editable = true, onUpdate, extensions = [] } = options;
   const { store, setEditor } = createEditorStore();
 
   const editor = new Editor({
-    element,
     extensions: [
       StarterKit,
       Placeholder.configure({

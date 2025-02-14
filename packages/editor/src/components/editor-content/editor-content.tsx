@@ -32,22 +32,11 @@ export class EditorContent {
     }
   }
 
-  // 监听 editorInitialized 事件
-  // @Listen('editorInitialized', { target: 'body' })
-  // handleEditorInitialized(event: CustomEvent<any>) {
-  //   const { editor, editorStore } = event.detail;
-  //   this.currentEditor = editor;
-  //   this.editorStore = editorStore;
-  //   this.mountEditor();
-  // }
-
   // 组件生命周期方法
   componentDidLoad() {
     if (this.editor) {
-      setTimeout(() => {
-        this.currentEditor = this.editor;
-        this.mountEditor();
-      }, 300);
+      this.currentEditor = this.editor;
+      this.mountEditor();
     }
   }
 
@@ -57,7 +46,6 @@ export class EditorContent {
 
   // 挂载编辑器
   private mountEditor() {
-    debugger;
     if (!this.currentEditor || this.isEditorMounted) {
       return;
     }
@@ -67,7 +55,7 @@ export class EditorContent {
       if (!this.editorContainer) {
         this.editorContainer = document.createElement('div');
         this.editorContainer.className = 'ProseMirror-container';
-        this.hostElement.appendChild(this.editorContainer);
+        this.hostElement.firstChild.appendChild(this.editorContainer);
       }
 
       // 确保编辑器实例已经初始化
@@ -85,11 +73,8 @@ export class EditorContent {
 
         // 复制内容
         if (sourceElement.firstChild) {
-          const fragment = document.createDocumentFragment();
-          Array.from(sourceElement.childNodes).forEach(node => {
-            fragment.appendChild(node.cloneNode(true));
-          });
-          this.editorContainer.appendChild(fragment);
+          // @ts-ignore
+          this.editorContainer.append(...sourceElement.childNodes);
         }
 
         // 更新编辑器选项
